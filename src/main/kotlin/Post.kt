@@ -2,7 +2,7 @@ import java.util.*
 
 data class Post(
     // идентификатор записи
-    var id: Int,
+    var id: Int?,
     // идентификатора владельца стены, на которой размещена запись
     var ownerId: Int,
     // идентификатор автора записи
@@ -24,6 +24,9 @@ data class Post(
 object WallService {
     private var posts = emptyArray<Post>()
     private var count = 0
+    fun clear() {
+        posts = emptyArray()
+    }
 
     fun add(post: Post): Post {
         posts += post.copy(id = count++)
@@ -40,4 +43,9 @@ object WallService {
         }
         return false
     }
+    //fun printAllPosts(){
+    //    for (post in posts){
+    //        println(post)
+     //   }
+   // }
 }

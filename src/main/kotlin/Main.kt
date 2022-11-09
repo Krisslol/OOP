@@ -10,10 +10,10 @@ fun main() {
         comments = Comments(),
         likes = Likes(),
     )
-    val service = WallService
-    service.add(postNew)
+
+    WallService.add(postNew)
     println(postNew)
-    service.update(postNew)
+    WallService.update(postNew)
     println(postNew)
 
 }
