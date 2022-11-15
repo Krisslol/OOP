@@ -2,7 +2,7 @@ import java.util.*
 
 data class Post(
     // идентификатор записи
-    var id: Int?,
+    var id: Int,
     // идентификатора владельца стены, на которой размещена запись
     var ownerId: Int,
     // идентификатор автора записи
@@ -10,7 +10,7 @@ data class Post(
     // время публикации
     var date: Date,
     // текст записи
-    val text: String,
+     val text: String,
     // информация о комментариях
     val comments: Comments,
     // информация о лайках
@@ -43,9 +43,5 @@ object WallService {
         }
         return false
     }
-    //fun printAllPosts(){
-    //    for (post in posts){
-    //        println(post)
-     //   }
-   // }
+
 }
