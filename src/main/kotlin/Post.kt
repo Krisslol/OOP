@@ -10,7 +10,7 @@ data class Post(
     // время публикации
     var date: Date,
     // текст записи
-     val text: String,
+    val text: String,
     // информация о комментариях
     val comments: Comments,
     // информация о лайках
