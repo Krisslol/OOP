@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Post.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">OOP</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Post.kt</span></div><h1>Post.kt</h1><pre class="source lang-java linenums">import java.util.*
+
+<span class="fc" id="L3">data class Post(</span>
+    // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р·Р°РїРёСЃРё
+<span class="pc" id="L5">    var id: Int,</span>
+    // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂР° РІР»Р°РґРµР»СЊС†Р° СЃС‚РµРЅС‹, РЅР° РєРѕС‚РѕСЂРѕР№ СЂР°Р·РјРµС‰РµРЅР° Р·Р°РїРёСЃСЊ
+<span class="fc" id="L7">    var ownerId: Int,</span>
+    // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р°РІС‚РѕСЂР° Р·Р°РїРёСЃРё
+<span class="pc" id="L9">    val fromId: Int,</span>
+    // РІСЂРµРјСЏ РїСѓР±Р»РёРєР°С†РёРё
+<span class="fc" id="L11">    var date: Date,</span>
+    // С‚РµРєСЃС‚ Р·Р°РїРёСЃРё
+<span class="pc" id="L13">    val text: String,</span>
+    // РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ РєРѕРјРјРµРЅС‚Р°СЂРёСЏС…
+<span class="pc" id="L15">    val comments: Comments,</span>
+    // РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ Р»Р°Р№РєР°С…
+<span class="pc" id="L17">    val likes: Likes,</span>
+    // Р·Р°РєСЂРµРїР»РµРЅР° Р»Рё Р·Р°РїРёСЃСЊ РёР»Рё РЅРµС‚
+<span class="pc" id="L19">    val isPinned: Boolean = true,</span>
+    // РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ С‚РѕРј, РјРѕР¶РµС‚ Р»Рё С‚РµРєСѓС‰РёР№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЂРµРґР°РєС‚РёСЂРѕРІР°С‚СЊ Р·Р°РїРёСЃСЊ
+<span class="pc" id="L21">    val canEdit: Boolean = true</span>
+<span class="fc" id="L22">)</span>
+
+object WallService {
+<span class="fc" id="L25">    private var posts = emptyArray&lt;Post&gt;()</span>
+    private var count = 0
+    fun clear() {
+<span class="fc" id="L28">        posts = emptyArray()</span>
+<span class="fc" id="L29">    }</span>
+
+    fun add(post: Post): Post {
+<span class="fc" id="L32">        posts += post.copy(id = count++)</span>
+<span class="fc" id="L33">        return posts.last()</span>
+    }
+
+    fun update(newPost: Post): Boolean {
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        for ((index, post) in posts.withIndex()) {</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">            if (post.id == newPost.id) {</span>
+<span class="fc" id="L39">                post.ownerId = newPost.ownerId</span>
+<span class="fc" id="L40">                post.date = newPost.date</span>
+<span class="fc" id="L41">                posts[index] = newPost.copy()</span>
+<span class="fc" id="L42">                return true</span>
+            }
+        }
+<span class="fc" id="L45">        return false</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

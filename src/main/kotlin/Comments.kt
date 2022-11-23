@@ -5,4 +5,4 @@ data class Comments (
     var canPost: Boolean = true,
     // информация о том, могут ли сообщества комментировать запись
     var groupsCanPost: Boolean = true
-        )
+)
