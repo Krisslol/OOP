@@ -2,9 +2,9 @@ import java.util.*
 
 data class Post(
     // идентификатор записи
-    var id: Int,
+    var id: Int?,
     // идентификатора владельца стены, на которой размещена запись
-    var ownerId: Int,
+    var ownerId: Int?,
     // идентификатор автора записи
     val fromId: Int,
     // время публикации
@@ -18,7 +18,25 @@ data class Post(
     // закреплена ли запись или нет
     val isPinned: Boolean = true,
     // информация о том, может ли текущий пользователь редактировать запись
-    val canEdit: Boolean = true
+    val canEdit: Boolean = true,
+    val replyOwnerId: Int = 5,
+    //id поста с ответом
+    val replyPostId: Int = 80,
+    // если сообщение помечено "только для друзей"
+    val friendlyOnly: Int = 4,
+    val reposts: String = "reposts",
+    val postType: String = "postType",
+    val PostSource: String = "PostSource",
+    val Geo: String = "Geo",
+    val signerId: Int = 6,
+    // содержит историю репостов для текущего поста
+    val copyHistory: String = "copyHistory",
+    val canPin: Int = 3,
+    val canDelete: Int = 1,
+    // закреплена ли запись или нет
+    val markedAsAds: Int = 2,
+    val isFavorite: Boolean = true,
+    val attachment: Attachment
 )
 
 object WallService {

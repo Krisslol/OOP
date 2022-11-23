@@ -9,6 +9,7 @@ fun main() {
         text = "text",
         comments = Comments(),
         likes = Likes(),
+
     )
 
     WallService.add(postNew)
