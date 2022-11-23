@@ -36,7 +36,12 @@ data class Post(
     // закреплена ли запись или нет
     val markedAsAds: Int = 2,
     val isFavorite: Boolean = true,
-    val attachment: Attachment
+  val attachment: Array<Attachment> = arrayOf(
+      GraffitiAttachment(),
+      ApplicationContentAttachment(),
+      VideoAttachment(),
+      PhotoAttachment(),
+      AudioAttachment())
 )
 
 object WallService {
