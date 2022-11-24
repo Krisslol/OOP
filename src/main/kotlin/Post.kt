@@ -55,10 +55,11 @@ object WallService {
         for ((index, post) in posts.withIndex()) {
             if (post.id == postId) {
                 comments += comment
-            } else throw PostNotFoundException("Нет такого поста")
+                return comment
+            }
         }
-        return comment
-    }
+           throw PostNotFoundException("Нет такого поста")
+        }
 
     fun clear() {
         posts = emptyArray()
