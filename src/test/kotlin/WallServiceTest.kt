@@ -23,6 +23,7 @@ class WallServiceTest {
             text = "текст",
             comments = Comments(),
             likes = Likes(),
+            comment = Comment(),
         )
 
         WallService.add(post)
@@ -41,9 +42,10 @@ class WallServiceTest {
             text = "текст",
             comments = Comments(),
             likes = Likes(),
+            comment = Comment(),
         )
         WallService.add(post)
-        val update = Post(1, 2, 3, Date(), "hello", Comments(), Likes())
+        val update = Post(1, 2, 3, Date(), "hello", Comment(), Comments(),  Likes())
         val result = WallService.update(update)
         assertTrue(result)
     }
@@ -58,13 +60,37 @@ class WallServiceTest {
             text = "lalala",
             comments = Comments(),
             likes = Likes(),
+            comment = Comment(),
         )
 
         WallService.add(post)
-        val update = Post(9, 4, 7, Date(), "hi", Comments(), Likes())
+        val update = Post(9, 4, 7, Date(), "hi", Comment(), Comments(),  Likes())
         val result = WallService.update(update)
 
         assertFalse(result)
+    }
+
+    @Test
+    fun createComment(){
+        val post = Post(
+            id = 0,
+            ownerId = 1,
+            date = Date(),
+            fromId = 1,
+            text = "текст",
+            comments = Comments(),
+            likes = Likes(),
+            comment = Comment(),
+        )
+
+        WallService.createComment(0, Comment())
+
+        assertEquals(0,post.id)
+    }
+
+    @Test(expected = PostNotFoundException::class)
+    fun shouldThrow() {
+WallService.createComment(4, Comment())
     }
 }
 

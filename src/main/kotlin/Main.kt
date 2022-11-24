@@ -2,13 +2,14 @@ import java.util.*
 
 fun main() {
     val postNew = Post(
-        id = 1,
+        id = 0,
         ownerId = 1,
         date = Date(2022, 10, 31),
         fromId = 1,
         text = "text",
         comments = Comments(),
         likes = Likes(),
+        comment = Comment(),
     )
 
     WallService.add(postNew)
@@ -17,5 +18,5 @@ fun main() {
     println(postNew)
 
 
-    WallService.createComment(1, Comment())
+    WallService.createComment(0, Comment())
 }
