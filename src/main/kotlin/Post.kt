@@ -36,17 +36,30 @@ data class Post(
     // закреплена ли запись или нет
     val markedAsAds: Int = 2,
     val isFavorite: Boolean = true,
-  val attachment: Array<Attachment> = arrayOf(
-      GraffitiAttachment(),
-      ApplicationContentAttachment(),
-      VideoAttachment(),
-      PhotoAttachment(),
-      AudioAttachment())
+    val attachment: Array<Attachment> = arrayOf(
+        GraffitiAttachment(),
+        ApplicationContentAttachment(),
+        VideoAttachment(),
+        PhotoAttachment(),
+        AudioAttachment()
+    )
 )
 
 object WallService {
     private var posts = emptyArray<Post>()
+    private var comments = emptyArray<Comment>()
     private var count = 0
+
+    fun createComment(postId: Int, comment: Comment): Comment {
+
+        for ((index, post) in posts.withIndex()) {
+            if (post.id == postId) {
+                comments += comment
+            } else throw PostNotFoundException("Нет такого поста")
+        }
+        return comment
+    }
+
     fun clear() {
         posts = emptyArray()
     }
@@ -67,5 +80,5 @@ object WallService {
         }
         return false
     }
-
 }
+

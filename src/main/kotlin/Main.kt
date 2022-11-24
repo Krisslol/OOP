@@ -16,4 +16,6 @@ fun main() {
     WallService.update(postNew)
     println(postNew)
 
+
+    WallService.createComment(1, Comment())
 }
