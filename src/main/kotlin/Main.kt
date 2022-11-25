@@ -20,3 +20,5 @@ fun main() {
 
     WallService.createComment(0, Comment())
 }
+
+

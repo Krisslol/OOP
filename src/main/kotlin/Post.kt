@@ -11,7 +11,7 @@ data class Post(
     var date: Date,
     // текст записи
     val text: String,
-    val comment:Comment,
+    val comment:Comment =Comment(),
     // информация о комментариях
     val comments: Comments,
     // информация о лайках
