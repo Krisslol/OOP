@@ -1,7 +1,7 @@
 import java.util.Date
 
-class PhotoAttachment :Attachment() {
-    override val type = "video"
+class PhotoAttachment() :Attachment() {
+    override val type = "photo"
 }
 data class Photo(
     val albumId:Int = 5,

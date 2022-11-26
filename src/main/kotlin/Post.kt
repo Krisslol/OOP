@@ -64,6 +64,7 @@ object WallService {
 
     fun clear() {
         posts = emptyArray()
+        count = 0
     }
 
     fun add(post: Post): Post {

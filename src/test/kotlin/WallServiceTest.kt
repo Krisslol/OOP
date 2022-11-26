@@ -4,7 +4,6 @@ import org.junit.Assert.*
 import org.junit.Before
 import java.util.*
 
-
 class WallServiceTest {
     @Before
     fun clearBeforeTest() {
@@ -35,7 +34,7 @@ class WallServiceTest {
     fun update() {
 
         val post = Post(
-            id = 1,
+            id = 0,
             ownerId = 1,
             date = Date(),
             fromId = 1,
@@ -45,7 +44,7 @@ class WallServiceTest {
             comment = Comment(),
         )
         WallService.add(post)
-        val update = Post(1, 2, 3, Date(), "hello", Comment(), Comments(),  Likes())
+        val update = Post(0, 2, 3, Date(), "hello", Comment(), Comments(),  Likes())
         val result = WallService.update(update)
         assertTrue(result)
     }
