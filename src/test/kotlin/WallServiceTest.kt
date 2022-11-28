@@ -81,6 +81,7 @@ class WallServiceTest {
             likes = Likes(),
             comment = Comment(),
         )
+        WallService.add(post)
        WallService.createComment(0, Comment())
         assertEquals(0,post.id)
     }
